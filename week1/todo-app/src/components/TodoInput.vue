@@ -8,21 +8,22 @@
 <script>
 export default {
   data() {
+    // 여러 컴포넌트에서 참조가 걸리지 않게 하려면 이렇게 함수형으로 리턴해야한다. (단축키 : vda)
     return {
-      inputText: ""
+      inputText: "",
     };
   },
   methods: {
-    addTodo: function() {
-      // console.log("clicked", this.inputText);
+    addTodo() {
       var value = this.inputText;
-      this.$emit("add", value);
+      console.log("데이터 =>", value);
+      this.$emit("add", value); // 하위 컴포넌트에서 이벤트와 함께 값을 넘기면 상위 컴포넌트에서 받아버리면 된다
       this.initForm();
     },
-    initForm: function() {
+    initForm() {
       this.inputText = "";
-    }
-  }
+    },
+  },
 };
 </script>
 

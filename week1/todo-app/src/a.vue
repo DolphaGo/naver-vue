@@ -1,5 +1,8 @@
 <template>
-  <!-- HTML -->
+  <div>
+    <header></header>
+    <main></main>
+  </div>
 </template>
 
 <script>
