@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Template Syntax</title>
   </head>
   <body>
     <div id="app">
       <header>
         <!-- #1 -->
+        <button v-on:click="eventMethod">버튼</button>
         <h3>{{ message }}</h3>
       </header>
       <section>
@@ -24,6 +25,7 @@
           <li>2</li>
           <li>3</li>
         </ul>
+        {{name}}
       </section>
     </div>
 

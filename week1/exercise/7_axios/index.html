@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Axios in Vue</title>
   </head>
   <body>
     <div id="app">
       <button v-on:click="getData">Get user data</button>
+      <ul>
+        <li v-for="user in users">{{user}}</li>
+      </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       new Vue({
-        el: '#app',
+        el: "#app",
         data: {
-          users: []
+          users: [],
         },
         methods: {
-          getData: function() { 
-            axios.get('https://jsonplaceholder.typicode.com/users/')
-              .then(function(response) {
-                console.log(response.data);
-                // 할일 #1 - 전달 받은 10개의 사용자 정보를 화면에 출력
-              })
-              .catch(function(error) {
+          getData: function () {
+            axios
+              .get("https://jsonplaceholder.typicode.com/users/")
+              .then(
+                function (response) {
+                  // => 이렇게 하면 this가 상위 컴포넌트를 먹음(윈도우가 아님)
+                  // 할일 #1 - 전달 받은 10개의 사용자 정보를 화면에 출력
+                  console.log(this);
+                  this.users = response.data;
+                  console.log(response.data);
+                  // console.log(this); // this : 브라우저, 윈도우임
+                }.bind(this)
+              )
+              .catch(function (error) {
                 console.log(error);
               });
-          }
-        }
-      })
+          },
+        },
+      });
     </script>
   </body>
 </html>

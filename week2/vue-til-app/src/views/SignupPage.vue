@@ -11,10 +11,10 @@ import SignupForm from "../components/signup/SignupForm.vue";
 
 export default {
   components: {
-    SignupForm
+    SignupForm,
     // 'signup-form': SignupForm,
     // SignupForm: SignupForm,
-  }
+  },
 };
 </script>
 

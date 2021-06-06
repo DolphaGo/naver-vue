@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div id="app">
-    {{ message }}
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script>
-    var vm = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue.js'
-      }
-    })
-    
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">{{ message }}</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 1 : vue 라이브러리를 가져오고 -->
+    <script>
+      new Vue({
+        el: "#app", // 2. el로 태그를 쫒아서 뷰의 문법을 적용하겠다. 인스턴스 가져오기
+        data: {
+          message: "Hello Vue.js",
+        },
+      });
+    </script>
+  </body>
 </html>
